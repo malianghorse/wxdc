@@ -1,17 +1,15 @@
-package com.authine.pojo;
+package com.authine.DTO;
 
 import com.authine.enums.OrderState;
 import com.authine.enums.PayState;
-import org.hibernate.annotations.GenericGenerator;
+import com.authine.pojo.OrderDetail;
 
-import javax.persistence.*;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "order_main")
-public class OrderMain {
+public class OrderDTO {
     private String orderId;
 
     private String buyerName;
@@ -24,17 +22,14 @@ public class OrderMain {
 
     private BigDecimal orderAmount;
 
-    private Integer orderState= OrderState.ToBeComfirm.getCode();
+    private Integer orderState;
 
-    private Integer payState= PayState.before.getCode();
+    private Integer payState;
 
     private Date createTime;
 
     private Date updateTime;
 
-    @Id
-    @GenericGenerator(name = "user-uuid",strategy = "uuid")
-    @GeneratedValue(generator = "user-uuid")
     public String getOrderId() {
         return orderId;
     }
@@ -114,4 +109,14 @@ public class OrderMain {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    public List<OrderDetail> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<OrderDetail> orderList) {
+        this.orderList = orderList;
+    }
+
+    private List<OrderDetail> orderList;
 }

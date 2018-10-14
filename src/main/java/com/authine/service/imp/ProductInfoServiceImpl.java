@@ -13,6 +13,8 @@ import java.util.Optional;
 
 @Service
 public class ProductInfoServiceImpl implements ProductInfoService {
+
+
     @Autowired
     private ProductInfoRepository productInfoRepository;
 
@@ -27,5 +29,11 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
         Page<ProductInfo> all = productInfoRepository.findAll(pageable);
         return all;
+    }
+    @Override
+
+    public ProductInfo save(ProductInfo productInfo) {
+        ProductInfo save = productInfoRepository.save(productInfo);
+        return save;
     }
 }

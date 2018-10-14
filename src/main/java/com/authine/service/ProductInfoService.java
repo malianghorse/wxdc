@@ -11,4 +11,5 @@ public interface ProductInfoService {
     Page<ProductInfo> getAll(Pageable pageable);
 
     Optional<ProductInfo> getById(String s);
+    ProductInfo save(ProductInfo productInfo);
 }
