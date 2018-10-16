@@ -3,13 +3,17 @@ package com.authine.DTO;
 import com.authine.enums.OrderState;
 import com.authine.enums.PayState;
 import com.authine.pojo.OrderDetail;
+import lombok.Data;
 
 import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+
 public class OrderDTO {
+    @NotEmpty
     private String orderId;
 
     private String buyerName;
